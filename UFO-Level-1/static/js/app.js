@@ -25,8 +25,11 @@ button.on("click", function() {
 
   console.log(filteredData);
 
+  //removes the current values from the table
   d3.selectAll("tr").selectAll("td").remove();
-
+  
+  //Use d3 to update each cell's text with
+  // filteredData values (Date, City, State, Country, Shape, Duration, Comments)
   filteredData.forEach((ufosighting) => {
     var row = tbody.append("tr");
     Object.entries(ufosighting).forEach(([key, value]) => {
@@ -34,9 +37,6 @@ button.on("click", function() {
       cell.text(value);
     });
   });
-  
-  // right now this renders objects but not values. 
-  //d3.select("tbody").text(filteredData);
   
 });
 
